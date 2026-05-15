@@ -3,6 +3,7 @@ Graduation_Design
 
 题目：居家老人日常活动异常监测报警系统
 功能：
+
 <img width="337" height="264" alt="image" src="https://github.com/user-attachments/assets/5f796e82-d8de-4a1a-8f80-e8b3a1ad34ea" />
 
 <img width="624" height="322" alt="image" src="https://github.com/user-attachments/assets/05efe202-ce2d-4133-bc3e-598e1ecc73d8" />
