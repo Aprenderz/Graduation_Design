@@ -1,0 +1,36 @@
+<view class="page">
+  <view class="hero" style="background: linear-gradient(135deg, #3b82f6, #06b6d4);">
+    <view class="hero-title">血氧饱和度</view>
+    <view class="hero-subtitle">最近100条记录</view>
+    <view class="hero-value">{{avgSpo2}}<text class="hero-unit">%</text></view>
+    <view class="hero-label">平均血氧</view>
+  </view>
+
+  <view class="chart-card">
+    <view class="card-header">
+      <text class="card-header-title">血氧变化趋势</text>
+      <text class="card-header-date">近100次测量</text>
+    </view>
+    <view class="chart-container">
+      <canvas canvas-id="spo2Chart" class="chart"></canvas>
+      <view wx:if="{{!hasData}}" class="no-data">暂无血氧数据</view>
+    </view>
+  </view>
+
+  <view class="stats-row">
+    <view class="stat-card">
+      <text class="stat-label">最高血氧</text>
+      <text class="stat-value">{{maxSpo2}}<text class="stat-unit">%</text></text>
+    </view>
+    <view class="stat-card">
+      <text class="stat-label">最低血氧</text>
+      <text class="stat-value">{{minSpo2}}<text class="stat-unit">%</text></text>
+    </view>
+  </view>
+
+  <view class="btn-wrapper">
+    <button class="refresh-btn" bindtap="loadHistoryData" disabled="{{loading}}">
+      {{loading ? '加载中...' : '刷新数据'}}
+    </button>
+  </view>
+</view>

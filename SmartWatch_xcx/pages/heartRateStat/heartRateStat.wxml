@@ -1,0 +1,40 @@
+<view class="page">
+  <!-- 顶部渐变背景区域 -->
+  <view class="hero">
+    <view class="hero-title">心率</view>
+    <view class="hero-subtitle">最近100条记录</view>
+    <view class="hero-value">{{avgHeartRate}}<text class="hero-unit">次/分</text></view>
+    <view class="hero-label">平均心率</view>
+  </view>
+
+  <!-- 图表卡片 -->
+  <view class="chart-card">
+    <view class="card-header">
+      <text class="card-header-title">心率变化趋势</text>
+      <text class="card-header-date">近100次测量</text>
+    </view>
+    <view class="chart-container">
+      <canvas canvas-id="heartRateChart" class="chart"></canvas>
+      <view wx:if="{{!hasData}}" class="no-data">暂无心率数据</view>
+    </view>
+  </view>
+
+  <!-- 统计卡片组 -->
+  <view class="stats-row">
+    <view class="stat-card">
+      <text class="stat-label">最高心率</text>
+      <text class="stat-value">{{maxHeartRate}}<text class="stat-unit">次/分</text></text>
+    </view>
+    <view class="stat-card">
+      <text class="stat-label">最低心率</text>
+      <text class="stat-value">{{minHeartRate}}<text class="stat-unit">次/分</text></text>
+    </view> 
+  </view>
+
+  <!-- 刷新按钮 -->
+  <view class="btn-wrapper">
+    <button class="refresh-btn" bindtap="loadHistoryData" disabled="{{loading}}">
+      {{loading ? '加载中...' : '刷新数据'}}
+    </button>
+  </view>
+</view>

@@ -1,0 +1,49 @@
+<view class="container">
+  <!-- 地图区域 -->
+  <view class="map-container">
+    <map
+      id="myMap"
+      longitude="{{longitude}}"
+      latitude="{{latitude}}"
+      markers="{{markers}}"
+      bindtap="onMapTap"
+      scale="15"
+      show-location
+      style="width:100%; height:100%"
+    ></map>
+  </view>
+
+  <!-- 数据卡片区域 -->
+  <view class="data-cards">
+    <view class="card" bindtap="onHeartRateCardTap">
+      <text class="card-title">❤️ 心率</text>
+      <text class="card-value">{{heartRate}} <text class="unit">bpm</text></text>
+    </view>
+    <view class="card" bindtap="onSpo2CardTap">
+      <text class="card-title">🩸 血氧</text>
+      <text class="card-value">{{spo2}} <text class="unit">%</text></text>
+    </view>
+    <view class="card" bindtap="onTempCardTap">
+      <text class="card-title">🌡️ 体温</text>
+      <text class="card-value">{{temp}} <text class="unit">℃</text></text>
+    </view>
+    <view class="card alarm-card">
+      <text class="card-title">🚨 警报状态</text>
+      <text class="card-value alarm-text {{alarmClass}}">{{alarmText}}</text>
+    </view>
+
+    <!-- 新增步数卡片：长条、白色、一行显示 -->
+    <view class="card step-card">
+      <text class="step-title">👣 今日步数</text>
+      <text class="step-value">{{step}} <text class="unit">步</text></text>
+    </view>
+  </view>
+
+  <!-- 最后更新时间 -->
+  <view class="update-time" wx:if="{{lastUpdate}}">最后更新：{{lastUpdate}}</view>
+
+  <!-- 右下角悬浮刷新按钮 -->
+  <view class="float-btn" bindtap="onRefresh">
+    <image src="/images/refresh.png" class="float-icon" mode="aspectFit"></image>
+  </view>
+</view>

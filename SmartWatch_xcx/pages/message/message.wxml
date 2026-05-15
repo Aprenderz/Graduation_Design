@@ -1,0 +1,36 @@
+<view class="container">
+  <!-- 消息列表 -->
+  <scroll-view scroll-y class="msg-list" scroll-into-view="{{scrollToView}}">
+    <view wx:for="{{groupedMessages}}" wx:key="date">
+      <!-- 日期标签 -->
+      <view class="date-tag">{{item.dateDisplay}}</view>
+      
+      <view wx:for="{{item.messages}}" wx:for-item="msg" wx:key="timestamp" class="msg-item">
+        <view class="msg-time">{{msg.timeStr}}</view>
+        <view class="msg-bubble {{msg.isNormal ? 'normal' : 'alert'}}">
+          <text class="msg-content">{{msg.description}}</text>
+        </view>
+      </view>
+    </view>
+    
+    <view wx:if="{{!hasMessages}}" class="empty-tip">
+      <text>暂无报警消息，设备运行正常</text>
+    </view>
+  </scroll-view>
+
+  <!-- 右下角悬浮按钮 -->
+  <view class="float-btn" bindtap="onAddAddress">
+    <image src="/images/add_msg.png" class="add-icon" mode="aspectFit"></image>
+  </view>
+
+  <!-- 地址设置弹窗 -->
+  <view class="modal-mask" wx:if="{{showModal}}" bindtap="hideModal"></view>
+  <view class="modal" wx:if="{{showModal}}">
+    <view class="modal-title">设置家庭地址</view>
+    <input class="modal-input" placeholder="请输入详细地址" value="{{addressInput}}" bindinput="onAddressInput" />
+    <view class="modal-btns">
+      <button class="btn-cancel" bindtap="hideModal">取消</button>
+      <button class="btn-confirm" bindtap="submitAddress">确定下发</button>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,113 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: #f5f6fa;
+}
+
+.map-container {
+  width: 100%;
+  height: 50%;
+  background-color: #e9ecef;
+}
+
+.data-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 30rpx;
+  gap: 20rpx;
+  margin-top: -45px;
+}
+
+.card {
+  flex: 1;
+  min-width: 40%;
+  background: white;
+  border-radius: 24rpx;
+  padding: 30rpx 20rpx;
+  text-align: center;
+  box-shadow: 0 4rpx 20rpx rgba(0,0,0,0.05);
+}
+
+.card-title {
+  font-size: 28rpx;
+  color: #6c757d;
+  display: block;
+  margin-bottom: 16rpx;
+}
+
+.card-value {
+  font-size: 48rpx;
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+.unit {
+  font-size: 28rpx;
+  font-weight: normal;
+  color: #95a5a6;
+}
+
+.alarm-card {
+  width: 100%;
+  background: #fff9f0;
+}
+
+.alarm-text {
+  font-size: 36rpx;
+}
+
+.normal { color: #27ae60; }
+.warning { color: #f39c12; }
+.danger { color: #e74c3c; }
+
+/* 步数卡片样式：长条、水平布局、白色背景 */
+.step-card {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: left;
+  padding: 30rpx 40rpx;
+  background: white;  /* 与生理卡片一致 */
+}
+
+.step-title {
+  font-size: 32rpx;
+  color: #6c757d;
+}
+
+.step-value {
+  font-size: 48rpx;
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+/* 悬浮按钮 */
+.float-btn {
+  position: fixed;
+  bottom: 30px;
+  right: 20px;
+  width: 56px;
+  height: 56px;
+  background: white;
+  border: 1px solid #ffffff;
+  border-radius: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+.float-icon {
+  width: 28px;
+  height: 28px;
+}
+
+.update-time {
+  text-align: center;
+  font-size: 24rpx;
+  color: #95a5a6;
+  margin-bottom: 30rpx;
+}
